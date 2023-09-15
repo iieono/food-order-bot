@@ -22,8 +22,7 @@ function App() {
     console.group(index)
     // setIsCart(true)
   };
-  useEffect(()=>{
-
+  const setViewOrder = ()=> {
     window.Telegram.WebApp.MainButton.hide()
     if(cartItems.length > 0){
       window.Telegram.WebApp.MainButton.show()
@@ -34,6 +33,10 @@ function App() {
       window.Telegram.WebApp.MainButton.setText('View Order')
       window.Telegram.WebApp.MainButton.onClick(()=>setIsCart(true))
     }
+  }
+  useEffect(()=>{
+    setViewOrder()
+    
   },[])
   return (
     <div className="App">
@@ -60,7 +63,7 @@ function App() {
             <Category />
           </div>
         ) : (
-          <Cart cartItems={cartItems} setIsCart={setIsCart} />
+          <Cart cartItems={cartItems} setIsCart={setIsCart} setViewOrder={setViewOrder} />
         )}
       </div>
     </div>

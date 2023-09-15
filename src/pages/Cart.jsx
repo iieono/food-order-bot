@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-export const Cart = ({cartItems, setIsCart}) => {
+export const Cart = ({cartItems, setIsCart, setViewOrder}) => {
   
   const orderList = [
     {
@@ -64,7 +64,10 @@ export const Cart = ({cartItems, setIsCart}) => {
       <div className='cart-orders'>
         <div className='cart-header-container'>
           <p className='cart-header'>YOUR ORDER</p>
-          <button className='cart-edit-button' onClick={ ()=> setIsCart(false) }>Edit</button>
+          <button className='cart-edit-button' onClick={ ()=> {
+            setIsCart(false) 
+            setViewOrder()
+            }}>Edit</button>
         </div>
         <div className='cart-list-container'>
             { orderList && orderList.map((order)=>{
