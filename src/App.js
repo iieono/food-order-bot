@@ -36,9 +36,14 @@ function App() {
       setCartItems(
         newCart
       )
+      if(!window.Telegram.WebApp.MainButton.isVisible){
+        setViewOrder()
+        
+      }
     }else{
       setCartItems([...cartItems, {...item, count: 1}])
     }
+    
     console.log(cartItems)
     
   }
