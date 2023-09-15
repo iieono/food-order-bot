@@ -7,12 +7,13 @@ const categories = ['111', '2222222222', '333333', '444444444444', '5555']
 
 function App() {
   console.log(window.Telegram.WebApp)
-  window.Telegram.WebApp.MainButton.show()
-  window.Telegram.WebApp.MainButton.setText('View Order')
-  window.Telegram.WebApp.MainButton.onClick(()=>setIsCart(state => !state))
+  // window.Telegram.WebApp.MainButton.show()
+  // window.Telegram.WebApp.MainButton.setText('View Order')
+  // window.Telegram.WebApp.MainButton.onClick(()=>setIsCart(state => !state))
 
   const [isCart, setIsCart] = useState(false)
   const [cartItems, setCartItems] = useState([])
+  const [categories, setCategories] = useState(['hello', 'holo hola hola', 'bonkerrs', 'cha cha cha, cha cha'])
 
   return (
     <div className="App">
@@ -21,7 +22,9 @@ function App() {
           !isCart ? (
           <div className='container-main'>
             <div className='category-container'>
-              <button className='curr-category category-item'>Fast Food</button>
+                <button className='prev-category category-item'>{categories[0]}</button>
+                <button className='curr-category category-item'>{categories[1]}</button>
+                <button className='next-category category-item'>{categories[2]}</button>
             </div>
             <Items />
           </div>
