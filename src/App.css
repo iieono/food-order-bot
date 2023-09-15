@@ -19,7 +19,8 @@
   padding: 3px;
   display: flex;
   align-items: center;
-  overflow-y: auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
   scroll-snap-type: x mandatory;
   justify-content: center;
   max-height: 35px;
@@ -31,7 +32,7 @@
   background-color: #fff;
   border: none;
   padding: 3px;
-  min-width: 50%;
+  min-width: 40%;
   /* background-color: transparent; */
   font-size: 16px;
 }
