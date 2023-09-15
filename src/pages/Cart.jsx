@@ -10,6 +10,18 @@ export const Cart = ({cartItems, setIsCart}) => {
       description: 'Pizza peperonni spicy one' 
     },
     {
+      item_name : 'Pizza',
+      price : 65000,
+      count : 3,
+      description: 'Pizza peperonni spicy one' 
+    },
+    {
+      item_name : 'Pizza',
+      price : 65000,
+      count : 3,
+      description: 'Pizza peperonni spicy one' 
+    },
+    {
       item_name : 'Cola',
       price : 10000,
       count : 1, 
@@ -23,7 +35,7 @@ export const Cart = ({cartItems, setIsCart}) => {
     }
 
     window.Telegram.WebApp.MainButton.show()
-    window.Telegram.WebApp.MainButton.setText(`Pay ${total_price}`)
+    window.Telegram.WebApp.MainButton.setText(`Pay ${total_price.toLocaleString('fr')} so'm`)
     window.Telegram.WebApp.MainButton.onClick(()=>setIsCart(false))
   },[])
   return (
@@ -42,7 +54,7 @@ export const Cart = ({cartItems, setIsCart}) => {
                   <div className='order-item-details'>
                     <div className='order-item-details-header'>
                       <p>{order.item_name} <b className='bold-count'>{order.count}x</b></p>
-                      <p>{order.count * order.price} sum</p>
+                      <p>{(order.count * order.price).toLocaleString('fr')} so'm</p>
                     </div>
                     <div className='order-item-details-desc'>
                       <p className='comment-text'>{order.description}</p>
