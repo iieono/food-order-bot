@@ -19,8 +19,6 @@ function App() {
     if (index >= 0 && index < items.length) {
       setCatIndex(index);
     }
-    console.group(index)
-    // setIsCart(true)
   };
   const setViewOrder = ()=> {
     window.Telegram.WebApp.MainButton.hide()

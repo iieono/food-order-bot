@@ -58,7 +58,7 @@ export const Cart = ({cartItems, setIsCart, setViewOrder}) => {
       text_color : '#FFF'
     })
     window.Telegram.WebApp.MainButton.setText(`Pay ${total_price.toLocaleString('fr')} so'm`)
-    window.Telegram.WebApp.MainButton.onClick(()=>setIsCart(false))
+    // window.Telegram.WebApp.MainButton.onClick(()=>setIsCart(false))
   },[])
   return (
       <div className='cart-orders'>
