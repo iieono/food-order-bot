@@ -14,7 +14,34 @@ function App() {
   const [isCart, setIsCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [items, seItems] = useState(itemData);
+  const [catIndex, setCatIndex] = useState(0)
   // const [catIndex, setCatIndex] = useState(0);
+
+  function isInViewport(element) {
+    var bounding = element.getBoundingClientRect();
+    if (
+        bounding.top >= 0 &&
+        bounding.left >= 0 &&
+        bounding.right <= (window.innerWidth || document.documentElement.clientWidth) &&
+        bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+    ) {
+        console.log(element.getAttribute('id'));
+        return true;
+    }
+}
+  useEffect(()=>{
+    const categories = document.getElementsByClassName('item-cat-container')
+    if(categories){
+      console.log(categories)
+      for(let element of categories){
+        window.addEventListener('scroll', function (event) {
+          if (isInViewport(element)) {
+            // update the element display
+          }
+      }, false);
+      }
+    }
+  },[])
 
   const handleCart = (item, value)=>{
     if(!window.Telegram.WebApp.MainButton.isVisible){
@@ -92,6 +119,7 @@ function App() {
                   return (
                     <NavHashLink
                       smooth to={`#${item.cat_id}-category`}
+                      id={`${item.cat_id}-category-id`}
                       className=" category-item"
                       onClick={(e) => {handleCategory(item)}}
                     >
@@ -99,11 +127,11 @@ function App() {
                     </NavHashLink>
                   );
                 })}
-                <bu
+                <button
                       className=" category-item"
                       onClick={(e) => {}}
                     >
-              </bu>
+              </button>
             </div>
             {items &&
               items.map((cat) => {
