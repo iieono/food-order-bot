@@ -9,6 +9,7 @@ function App() {
   console.log(window.Telegram.WebApp)
   window.Telegram.WebApp.MainButton.show()
   window.Telegram.WebApp.MainButton.setText('View Order')
+  window.Telegram.WebApp.MainButton.onClick(()=> window.Telegram.WebApp.close())
 
   const [isCart, setIsCart] = useState(false)
   const [cartItems, setCartItems] = useState([])
