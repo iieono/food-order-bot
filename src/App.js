@@ -14,6 +14,13 @@ function App() {
   const [isCart, setIsCart] = useState(false)
   const [cartItems, setCartItems] = useState([])
   const [categories, setCategories] = useState(['hello', 'holo hola hola', 'bonkerrs', 'cha cha cha, cha cha'])
+  const [catIndex, setCatIndex] = useState(1)
+
+  const handleCatgory = (index)=>{
+    if(index >=0 && index < categories.length){
+      setCatIndex(index)
+    }
+  }
 
   return (
     <div className="App">
@@ -22,9 +29,9 @@ function App() {
           !isCart ? (
           <div className='container-main'>
             <div className='category-container'>
-                <button className='prev-category category-item'>{categories[0]}</button>
-                <button className='curr-category category-item'>{categories[1]}</button>
-                <button className='next-category category-item'>{categories[2]}</button>
+                <button className='prev-category category-item' onClick={()=>handleCatgory(catIndex-1)}>{categories[catIndex-1]}</button>
+                <button className='curr-category category-item'>{categories[catIndex]}</button>
+                <button className='next-category category-item' onClick={()=>handleCatgory(catIndex+1)}>{categories[catIndex+1]}</button>
             </div>
             <Items />
           </div>

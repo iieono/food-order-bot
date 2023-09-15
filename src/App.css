@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500&display=swap');
 
 .App{
+  font-family: 'Dosis', sans-serif;
   background-color: #fff;
   min-height: 100vh;
   display: flex;
@@ -15,24 +17,38 @@
 }
 
 .category-container{
-  background-color: #d7ff00;
+  background-color: #F94C10;
   padding: 3px;
   display: flex;
   align-items: center;
   overflow-y: hidden;
   overflow-x: hidden;
+  gap: 3px;
   scroll-snap-type: x mandatory;
   justify-content: center;
-  max-height: 35px;
+  max-height: 30px;
   
 }
 .category-item {
   scroll-snap-align: center;
   color: #000;
-  background-color: #fff;
+  /* background-color: #fff; */
   border: none;
-  padding: 3px;
-  min-width: 40%;
-  /* background-color: transparent; */
+  min-width: 50%;
+  text-align: center;
+  background-color: transparent;
+  font-size: 18px;
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  white-space: nowrap;
+}
+.prev-category {
+  text-align: end;
   font-size: 16px;
+  opacity: 0.6;
+}
+.next-category{
+  text-align: start ;
+  font-size: 16px;
+  opacity: 0.6;
 }
