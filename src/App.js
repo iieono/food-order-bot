@@ -55,7 +55,9 @@ function App() {
     }
   }
   useEffect(()=>{
-    setViewOrder() 
+    if(!window.Telegram.WebApp.MainButton.isVisible){
+      setViewOrder()
+    }
   },[cartItems])
   return (
     <div className="App">
