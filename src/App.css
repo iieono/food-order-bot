@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500&display=swap');
 
+*{
+  margin: 0;
+  padding: 0;
+}
 .App{
   font-family: 'Dosis', sans-serif;
   background-color: #fff;
@@ -11,7 +15,7 @@
 }
 
 .container{
-  background-color: #232428;
+  background-color: #232e3c;
   min-height: 100vh;
   width: 100%;
 }
@@ -45,10 +49,108 @@
 .prev-category {
   text-align: end;
   font-size: 16px;
-  opacity: 0.6;
+  opacity: 0.4;
 }
 .next-category{
   text-align: start ;
   font-size: 16px;
+  opacity: 0.4;
+}
+
+/* cart styles */
+
+.cart-header-container{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  padding-top: 20px;
+  color: #fff;
+  background-color: #232428;
+}
+.cart-header{
+  font-weight: bold;
+  letter-spacing: 3px
+}
+.cart-edit-button{
+  background-color: transparent;
+  color: #F94C10;
+  font-size: 18px;
+  border: none;
+}
+.cart-item-container{
+  display: flex;
+  padding: 10px 15px;  
+  gap: 5px;
+}
+.cart-image-container{
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 3px; */
+}
+.cart-item-image{
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+}
+.order-item-details{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 80%;
+  padding: 5px;
+  color: #fff;
+  gap: 3px;
+  /* height: 100%; */
+}
+.order-item-details-header{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 18px;
+}
+.order-item-details-desc{
+  overflow: hidden;
   opacity: 0.6;
+  max-height: 20px;
+}
+.comment-text{
+  text-overflow: ellipsis;
+  
+}
+.cart-list-container{
+  background-color: #232428;
+}
+.bold-count{
+  font-weight: bold;
+  color: #F94C10;
+}
+.extra-details{
+  padding: 5px 15px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #232e3c;
+  height: 100%;
+}
+.comment-input{
+  background-color: #232428;
+  border: none;
+  border-radius: 3px;
+  padding: 10px;
+  font-size: 18px;
+  color: #fff;
+  opacity: 0.7;
+}
+.comment-input:focus{
+  outline: 0;
+}
+.info-comment{
+  color: #fff;
+  padding: 10px;
+  opacity: 0.6;
+}
+.cart-orders{
+  background-color: #232e3c;
 }
