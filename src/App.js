@@ -40,7 +40,7 @@ function App() {
     if (index >= 0 && index < items.length) {
       setCatIndex(index);
     }
-    window.location.hash = `${items[index].cat_id}-categrory`;
+    // document.getElementById(`${items[index].cat_id}-categrory`).scrollToView()
   };
   const setViewOrder = ()=> {
     window.Telegram.WebApp.MainButton.hide()

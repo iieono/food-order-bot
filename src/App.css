@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500&display=swap');
 
+html
+  {
+    scroll-behavior: smooth;
+}
 *{
   margin: 0;
   padding: 0;
@@ -56,11 +60,13 @@
   opacity: 0.8;
 }
 .prev-category {
+  cursor: pointer;
   text-align: end;
   font-size: 16px;
   opacity: 0.4;
 }
 .next-category{
+  cursor: pointer;
   text-align: start ;
   font-size: 16px;
   opacity: 0.4;
@@ -81,6 +87,7 @@
   letter-spacing: 3px
 }
 .cart-edit-button{
+  cursor: pointer;
   background-color: transparent;
   color: #F94C10;
   font-size: 18px;
@@ -181,7 +188,7 @@
   justify-content: space-between;
 }
 .item-container{
-  max-width: 30%;
+  max-width: 45%;
   display: flex;
   margin-bottom: 20px;
   flex-direction: column;
@@ -215,6 +222,7 @@
   font-weight: bold;
   margin-top: 5px;
   font-size: 14px;
+  cursor: pointer;
 }
 .count-button{
   background-color: #F94C10;
@@ -226,9 +234,11 @@
   font-weight: bold;
   margin-top: 5px;
   font-size: 14px;
+  cursor: pointer;
 }
 .left-button{
   background-color: rgb(165, 6, 6);
+  
 }
 .item-image-container{
   position: relative;
