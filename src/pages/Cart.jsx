@@ -70,11 +70,11 @@ export const Cart = ({cartItems, setIsCart, setViewOrder}) => {
             }}>Edit</button>
         </div>
         <div className='cart-list-container'>
-            { orderList && orderList.map((order)=>{
+            { cartItems && cartItems.map((order)=>{
               return(
                 <div className='cart-item-container'>
                   <div className='cart-image-container'>
-                    <img src='https://cdn.pixabay.com/photo/2016/12/15/20/21/texture-1909992_640.jpg' alt='image' className='cart-item-image'/>
+                    <img src={order.image} alt={order.item_name} className='cart-item-image'/>
                   </div>
                   <div className='order-item-details'>
                     <div className='order-item-details-header'>

@@ -10,17 +10,19 @@ const categories = ["111", "2222222222", "333333", "444444444444", "5555"];
 function App() {
   console.log(window.Telegram.WebApp);
 
-  const [isCart, setIsCart] = useState(false);
+  const [isCart, setIsCart] = useState(true);
   const [cartItems, setCartItems] = useState([]);
   const [items, seItems] = useState(itemData);
   const [catIndex, setCatIndex] = useState(0);
 
   const handleCart = (item)=>{
-    setViewOrder()
+    if(!window.Telegram.WebApp.MainButton.isVisible){
+      setViewOrder()
+    }
     setCartItems(
       items => {
         // items.filter((i)=> i)
-        return [...items, item]
+        return [...items, {...item, count : 1}]
       }
     )
     console.log(cartItems)
@@ -60,7 +62,8 @@ function App() {
               >
                 {items ? items[catIndex - 1]?.category_name : ""}
               </button>
-              <button className="curr-category category-item">
+              <button className="curr-category category-item"
+              onClick={()=>setIsCart(true)}>
                 {items ? items[catIndex]?.category_name : ""}
               </button>
               <button
