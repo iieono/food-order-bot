@@ -48,7 +48,7 @@ export const Cart = ({cartItems, setIsCart, setViewOrder}) => {
   ]
   useEffect(()=>{
     let total_price = 0
-    for(const order of orderList){
+    for(const order of cartItems){
       total_price += (order.price * order.count)
     }
 
