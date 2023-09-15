@@ -26,7 +26,25 @@ export const Cart = ({cartItems, setIsCart}) => {
       price : 10000,
       count : 1, 
       description: 'Cola cola cola cola cola cola cola caol cola' 
-    }
+    },
+    {
+      item_name : 'Cola',
+      price : 10000,
+      count : 1, 
+      description: 'Cola cola cola cola cola cola cola caol cola' 
+    },
+    {
+      item_name : 'Cola',
+      price : 10000,
+      count : 1, 
+      description: 'Cola cola cola cola cola cola cola caol cola' 
+    },
+    {
+      item_name : 'Cola',
+      price : 10000,
+      count : 1, 
+      description: 'Cola cola cola cola cola cola cola caol cola' 
+    },
   ]
   useEffect(()=>{
     let total_price = 0
@@ -35,6 +53,10 @@ export const Cart = ({cartItems, setIsCart}) => {
     }
 
     window.Telegram.WebApp.MainButton.show()
+    window.Telegram.WebApp.MainButton.setParams({
+      color: '#F94C10',
+      text_color : '#FFF'
+    })
     window.Telegram.WebApp.MainButton.setText(`Pay ${total_price.toLocaleString('fr')} so'm`)
     window.Telegram.WebApp.MainButton.onClick(()=>setIsCart(false))
   },[])
