@@ -15,12 +15,6 @@ function App() {
   const [items, seItems] = useState(itemData);
   const [catIndex, setCatIndex] = useState(0);
 
-  useEffect(()=>{
-    setCartItems(
-      cartItems.filter((food)=> food.count > 0)
-    )
-  },[])
-
   const handleCart = (item, value)=>{
     if(!window.Telegram.WebApp.MainButton.isVisible){
       setViewOrder()
@@ -36,16 +30,10 @@ function App() {
       setCartItems(
         newCart
       )
-      if(!window.Telegram.WebApp.MainButton.isVisible){
-        setViewOrder()
-        
-      }
     }else{
       setCartItems([...cartItems, {...item, count: 1}])
     }
-    
     console.log(cartItems)
-    
   }
 
   const handleCategory = (index) => {
@@ -67,9 +55,8 @@ function App() {
     }
   }
   useEffect(()=>{
-    setViewOrder()
-    
-  },[])
+    setViewOrder() 
+  },[cartItems])
   return (
     <div className="App">
       <div className="container">
