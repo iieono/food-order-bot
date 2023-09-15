@@ -1,7 +1,7 @@
 import React from 'react'
 import { Item } from './Item'
 
-export const Category = ({category, handleCart}) => {
+export const Category = ({category, handleCart, cartItems}) => {
   return (
     <div className='item-cat-container' id={`${category.cat_id}-category`}>
       <div className='category-name'>
@@ -10,7 +10,7 @@ export const Category = ({category, handleCart}) => {
       <div className='items-container'>
         {category?.items && category.items.map((item)=>{
           return(
-            <Item item={item} handleCart={handleCart}/>
+            <Item item={item} handleCart={handleCart} cartItems={cartItems}/>
           )
         })}
       </div>

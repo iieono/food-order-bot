@@ -31,21 +31,21 @@ const itemData = [
         category_name : 'Drinks',
         items : [
             {
-                item_id: 1,
+                item_id: 4,
                 item_name: 'Cola',
                 description : 'Hot dog, but cola',
                 price : 9000,
                 image: 'https://cdn.pixabay.com/photo/2016/12/15/20/21/texture-1909992_640.jpg'
             },
             {
-                item_id: 2,
+                item_id: 5,
                 item_name: 'Coffee',
                 description : 'Hot dog, but coffee',
                 price : 6000,
                 image: 'https://cdn.pixabay.com/photo/2016/12/15/20/21/texture-1909992_640.jpg'
             },
             {
-                item_id: 3,
+                item_id: 6,
                 item_name: 'Tea',
                 description : 'Hot dog, but tea',
                 price : 3000,
@@ -58,28 +58,28 @@ const itemData = [
         category_name : 'Dessert',
         items : [
             {
-                item_id: 1,
+                item_id: 7,
                 item_name: 'Cake',
                 description : 'Hot dog, but cake',
                 price : 7000,
                 image: 'https://cdn.pixabay.com/photo/2016/12/15/20/21/texture-1909992_640.jpg'
             },
             {
-                item_id: 2,
+                item_id: 8,
                 item_name: 'Cake 2',
                 description : 'Hot dog, but cake',
                 price : 7000,
                 image: 'https://cdn.pixabay.com/photo/2016/12/15/20/21/texture-1909992_640.jpg'
             },
             {
-                item_id: 3,
+                item_id: 9,
                 item_name: 'Cake 3',
                 description : 'Hot dog, but cake',
                 price : 7000,
                 image: 'https://cdn.pixabay.com/photo/2016/12/15/20/21/texture-1909992_640.jpg'
             },
             {
-                item_id: 4,
+                item_id: 10,
                 item_name: 'Cake 4',
                 description : 'Hot dog, but cake',
                 price : 7000,
@@ -92,35 +92,35 @@ const itemData = [
         category_name : 'Dessert 2',
         items : [
             {
-                item_id: 1,
+                item_id: 11,
                 item_name: 'Cake 5',
                 description : 'Hot dog, but cake',
                 price : 7000,
                 image: 'https://cdn.pixabay.com/photo/2016/12/15/20/21/texture-1909992_640.jpg'
             },
             {
-                item_id: 2,
+                item_id: 12,
                 item_name: 'Cake 6',
                 description : 'Hot dog, but cake',
                 price : 7000,
                 image: 'https://cdn.pixabay.com/photo/2016/12/15/20/21/texture-1909992_640.jpg'
             },
             {
-                item_id: 3,
+                item_id: 13,
                 item_name: 'Cake 7',
                 description : 'Hot dog, but cake',
                 price : 7000,
                 image: 'https://cdn.pixabay.com/photo/2016/12/15/20/21/texture-1909992_640.jpg'
             },
             {
-                item_id: 4,
+                item_id: 14,
                 item_name: 'Cake 8',
                 description : 'Hot dog, but cake',
                 price : 7000,
                 image: 'https://cdn.pixabay.com/photo/2016/12/15/20/21/texture-1909992_640.jpg'
             },
             {
-                item_id: 4,
+                item_id: 15,
                 item_name: 'Cake 9',
                 description : 'Hot dog, but cake',
                 price : 7000,

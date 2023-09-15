@@ -15,17 +15,32 @@ function App() {
   const [items, seItems] = useState(itemData);
   const [catIndex, setCatIndex] = useState(0);
 
-  const handleCart = (item)=>{
+  useEffect(()=>{
+    setCartItems(
+      cartItems.filter((food)=> food.count > 0)
+    )
+  },[])
+
+  const handleCart = (item, value)=>{
     if(!window.Telegram.WebApp.MainButton.isVisible){
       setViewOrder()
     }
-    setCartItems(
-      items => {
-        // items.filter((i)=> i)
-        return [...items, {...item, count : 1}]
-      }
+    const foundItem = cartItems.find((food)=> item.item_id === food.item_id)
+    let newCart = cartItems.map((food)=>
+    food.item_id === item.item_id ?
+    {...foundItem, count: value === 'inc' ? foundItem.count + 1 : foundItem.count - 1}
+    : food
     )
+    newCart = newCart.filter((food)=> food.count > 0)
+    if(foundItem){
+      setCartItems(
+        newCart
+      )
+    }else{
+      setCartItems([...cartItems, {...item, count: 1}])
+    }
     console.log(cartItems)
+    
   }
 
   const handleCategory = (index) => {
@@ -76,7 +91,7 @@ function App() {
             {
               items && items.map((cat)=>{
                 return(
-                  <Category  category={cat} handleCart={handleCart}/>
+                  <Category  category={cat} handleCart={handleCart} cartItems={cartItems}/>
                 )
               })
 
