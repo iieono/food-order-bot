@@ -4,6 +4,9 @@
   margin: 0;
   padding: 0;
 }
+*::-webkit-scrollbar {
+  display: none;
+}
 .App{
   font-family: 'Dosis', sans-serif;
   background-color: #fff;
@@ -19,6 +22,7 @@
   min-height: 100vh;
   width: 100%;
 }
+
 
 .category-container{
   background-color: #F94C10;
@@ -127,7 +131,7 @@
   color: #F94C10;
 }
 .extra-details{
-  padding: 5px 15px;
+  /* padding: 5px 15px; */
   padding-top: 20px;
   display: flex;
   flex-direction: column;
@@ -138,7 +142,7 @@
   background-color: #232428;
   border: none;
   border-radius: 3px;
-  padding: 10px;
+  padding: 10px 20px;
   font-size: 18px;
   color: #fff;
   opacity: 0.7;
@@ -148,7 +152,7 @@
 }
 .info-comment{
   color: #fff;
-  padding: 10px;
+  padding: 10px 20px;
   opacity: 0.6;
 }
 .cart-orders{
