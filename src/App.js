@@ -7,8 +7,11 @@ const categories = ['111', '2222222222', '333333', '444444444444', '5555']
 
 function App() {
   console.log(window.Telegram.WebApp)
+  window.Telegram.WebApp.MainButton.show()
+  window.Telegram.WebApp.MainButton.setText('View Order')
 
   const [isCart, setIsCart] = useState(false)
+  const [cartItems, setCartItems] = useState([])
 
   return (
     <div className="App">
@@ -21,8 +24,9 @@ function App() {
             </div>
             <Items />
           </div>
+
           ):(
-            <Cart />
+            <Cart cartItems={cartItems} />
           )
         }
 
