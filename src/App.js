@@ -16,9 +16,7 @@ function App() {
   const [catIndex, setCatIndex] = useState(0);
 
   const handleCart = (item)=>{
-    if(cartItems.some((food)=> food.id = item.id)){
-      console('exists')
-    }
+    setViewOrder()
     setCartItems(
       items => {
         // items.filter((i)=> i)
