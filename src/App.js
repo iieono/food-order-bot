@@ -43,7 +43,6 @@ function App() {
     // document.getElementById(`${items[index].cat_id}-categrory`).scrollToView()
   };
   const setViewOrder = ()=> {
-    window.Telegram.WebApp.MainButton.hide()
     if(cartItems.length > 0){
       window.Telegram.WebApp.MainButton.show()
       window.Telegram.WebApp.MainButton.setParams({
@@ -52,12 +51,12 @@ function App() {
       })
       window.Telegram.WebApp.MainButton.setText('View Order')
       window.Telegram.WebApp.MainButton.onClick(()=>setIsCart(true))
+    }else{
+      window.Telegram.WebApp.MainButton.hide()
     }
   }
   useEffect(()=>{
-    if(!window.Telegram.WebApp.MainButton.isVisible){
-      setViewOrder()
-    }
+    setViewOrder() 
   },[cartItems])
   return (
     <div className="App">
