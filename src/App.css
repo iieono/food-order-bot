@@ -47,6 +47,7 @@ html
 }
 .category-item {
   color: #FFf;
+  text-decoration: none;
   /* background-color: #fff; */
   border: none;
   min-width: 33%;
