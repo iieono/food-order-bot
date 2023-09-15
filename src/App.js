@@ -20,7 +20,7 @@ function App() {
   const [catIndex, setCatIndex] = useState(1);
 
   const handleCatgory = (index) => {
-    if (index >= 0 && index < categories.length) {
+    if (index > 0 && index < categories.length) {
       setCatIndex(index);
     }
     setIsCart(true)
