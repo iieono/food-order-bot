@@ -10,7 +10,7 @@ const categories = ["111", "2222222222", "333333", "444444444444", "5555"];
 function App() {
   console.log(window.Telegram.WebApp);
 
-  const [isCart, setIsCart] = useState(true);
+  const [isCart, setIsCart] = useState(false);
   const [cartItems, setCartItems] = useState([1]);
   const [items, seItems] = useState(itemData);
   const [catIndex, setCatIndex] = useState(0);
