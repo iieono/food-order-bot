@@ -11,14 +11,28 @@ function App() {
   console.log(window.Telegram.WebApp);
 
   const [isCart, setIsCart] = useState(false);
-  const [cartItems, setCartItems] = useState([1]);
+  const [cartItems, setCartItems] = useState([]);
   const [items, seItems] = useState(itemData);
   const [catIndex, setCatIndex] = useState(0);
+
+  const handleCart = (item)=>{
+    if(cartItems.some((food)=> food.id = item.id)){
+      console('exists')
+    }
+    setCartItems(
+      items => {
+        // items.filter((i)=> i)
+        return [...items, item]
+      }
+    )
+    console.log(cartItems)
+  }
 
   const handleCategory = (index) => {
     if (index >= 0 && index < items.length) {
       setCatIndex(index);
     }
+    window.location.hash = `${items[index].cat_id}-categrory`;
   };
   const setViewOrder = ()=> {
     window.Telegram.WebApp.MainButton.hide()
@@ -61,7 +75,7 @@ function App() {
             {
               items && items.map((cat)=>{
                 return(
-                  <Category id={`${cat.id}-category`} category={cat}/>
+                  <Category  category={cat} handleCart={handleCart}/>
                 )
               })
 

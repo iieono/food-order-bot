@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Item = ({item}) => {
+export const Item = ({item, handleCart}) => {
   return (
     <div className='item-container'>
       <div className='item-image-container'>
@@ -12,7 +12,9 @@ export const Item = ({item}) => {
         <p className='price-text'>{item.price.toLocaleString('fr')} so'm</p>
       </div>
       <div className='item-buttons'>
-        <button className='add-button'>ADD</button>
+        <button className='add-button' onClick={()=>{
+          handleCart(item)
+        }}>ADD</button>
       </div>
     </div>
   )

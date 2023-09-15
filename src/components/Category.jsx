@@ -1,16 +1,16 @@
 import React from 'react'
 import { Item } from './Item'
 
-export const Category = ({category}) => {
+export const Category = ({category, handleCart}) => {
   return (
-    <div className='item-cat-container'>
+    <div className='item-cat-container' id={`${category.cat_id}-category`}>
       <div className='category-name'>
         <p>{category.category_name}</p>
       </div>
       <div className='items-container'>
         {category?.items && category.items.map((item)=>{
           return(
-            <Item item={item}/>
+            <Item item={item} handleCart={handleCart}/>
           )
         })}
       </div>
