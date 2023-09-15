@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { Items } from "./pages/Items";
 import { Cart } from "./pages/Cart";
@@ -6,10 +6,8 @@ import { Cart } from "./pages/Cart";
 const categories = ["111", "2222222222", "333333", "444444444444", "5555"];
 
 function App() {
+  
   console.log(window.Telegram.WebApp);
-  // window.Telegram.WebApp.MainButton.show()
-  // window.Telegram.WebApp.MainButton.setText('View Order')
-  // window.Telegram.WebApp.MainButton.onClick(()=>setIsCart(state => !state))
 
   const [isCart, setIsCart] = useState(true);
   const [cartItems, setCartItems] = useState([]);
@@ -20,7 +18,6 @@ function App() {
     "cha cha cha, cha cha",
   ]);
   const [catIndex, setCatIndex] = useState(1);
-  
 
   const handleCatgory = (index) => {
     if (index >= 0 && index < categories.length) {
@@ -28,7 +25,18 @@ function App() {
     }
     setIsCart(true)
   };
-
+  useEffect(()=>{
+    window.Telegram.WebApp.MainButton.hide()
+    if(cartItems.length > 0){
+      window.Telegram.WebApp.MainButton.show()
+      window.Telegram.WebApp.MainButton.setParams({
+        color: '#F94C10',
+        text_color : '#FFF'
+      })
+      window.Telegram.WebApp.MainButton.setText('View Order')
+      window.Telegram.WebApp.MainButton.onClick(()=>setIsCart(true))
+    }
+  },[])
   return (
     <div className="App">
       <div className="container">
