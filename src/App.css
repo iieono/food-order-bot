@@ -1,5 +1,32 @@
+
 .App{
-  background-color: var(--tg-theme-bg-color);
-  color: var(--tg-theme-text-color);
-  height : var(--tg-viewport-height)
+  background-color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.container{
+  background-color: #232428;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.category-container{
+  background-color: #d7ff00;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  justify-content: center;
+  
+}
+.category-item {
+  color: #000;
+  border: none;
+  padding: 3px;
+  background-color: transparent;
+  font-size: 18px;
 }
