@@ -34,30 +34,30 @@ html
   padding: 3px;
   display: flex;
   align-items: center;
-  overflow-y: hidden;
-  overflow-x: hidden;
+  overflow-y: auto;
+  overflow-x: auto;
   gap: 3px;
-  scroll-snap-type: x mandatory;
-  justify-content: center;
+  justify-content: start;
   max-height: 30px;
   position: sticky;
   top: 0;
+  scroll-snap-type: both mandatory;
   z-index: 99999;
   
 }
 .category-item {
-  scroll-snap-align: center;
   color: #FFf;
   /* background-color: #fff; */
   border: none;
-  min-width: 50%;
+  min-width: 33%;
   text-align: center;
   background-color: transparent;
   font-size: 18px;
   text-overflow: ellipsis;
   overflow: hidden; 
   white-space: nowrap;
-  opacity: 0.8;
+  opacity: 0.6;
+  scroll-snap-align: center;
 }
 .prev-category {
   cursor: pointer;

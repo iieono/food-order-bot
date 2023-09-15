@@ -4,6 +4,7 @@ import { Items } from "./pages/Items";
 import { Cart } from "./pages/Cart";
 import { Category } from "./components/Category";
 import itemData from './data'
+import { NavHashLink } from 'react-router-hash-link';
 
 const categories = ["111", "2222222222", "333333", "444444444444", "5555"];
 
@@ -13,7 +14,7 @@ function App() {
   const [isCart, setIsCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [items, seItems] = useState(itemData);
-  const [catIndex, setCatIndex] = useState(0);
+  // const [catIndex, setCatIndex] = useState(0);
 
   const handleCart = (item, value)=>{
     if(!window.Telegram.WebApp.MainButton.isVisible){
@@ -36,11 +37,11 @@ function App() {
     console.log(cartItems)
   }
 
-  const handleCategory = (index) => {
-    if (index >= 0 && index < items.length) {
-      setCatIndex(index);
-    }
-    // document.getElementById(`${items[index].cat_id}-categrory`).scrollToView()
+  const handleCategory = (item) => {
+    // if (index >= 0 && index < items.length) {
+    //   setCatIndex(index);
+    // }
+    // document.getElementById(`${item.cat_id}-categrory`).scrollToView()
   };
   const setViewOrder = ()=> {
     if(cartItems.length > 0){
@@ -64,7 +65,7 @@ function App() {
         {!isCart ? (
           <div className="container-main">
             <div className="category-container">
-              <button
+              {/* <button
                 className="prev-category category-item"
                 onClick={(e) => handleCategory(catIndex - 1)}
               >
@@ -80,19 +81,47 @@ function App() {
                 onClick={(e) => handleCategory(catIndex + 1)}
               >
                 {items ? items[catIndex + 1]?.category_name : ""}
+              </button> */}
+              <button
+                      className="category-item"
+                      onClick={(e) => {}}
+                    >
               </button>
+              {items &&
+                items.map((item) => {
+                  return (
+                    <NavHashLink
+                      smooth to={`#${item.cat_id}-category`}
+                      className=" category-item"
+                      onClick={(e) => {handleCategory(item)}}
+                    >
+                      {items ? item.category_name : ""}
+                    </NavHashLink>
+                  );
+                })}
+                <bu
+                      className=" category-item"
+                      onClick={(e) => {}}
+                    >
+              </bu>
             </div>
-            {
-              items && items.map((cat)=>{
-                return(
-                  <Category  category={cat} handleCart={handleCart} cartItems={cartItems}/>
-                )
-              })
-
-            }
+            {items &&
+              items.map((cat) => {
+                return (
+                  <Category
+                    category={cat}
+                    handleCart={handleCart}
+                    cartItems={cartItems}
+                  />
+                );
+              })}
           </div>
         ) : (
-          <Cart cartItems={cartItems} setIsCart={setIsCart} setViewOrder={setViewOrder} />
+          <Cart
+            cartItems={cartItems}
+            setIsCart={setIsCart}
+            setViewOrder={setViewOrder}
+          />
         )}
       </div>
     </div>
