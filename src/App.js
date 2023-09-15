@@ -2,30 +2,28 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { Items } from "./pages/Items";
 import { Cart } from "./pages/Cart";
+import { Category } from "./components/Category";
+import itemData from './data'
 
 const categories = ["111", "2222222222", "333333", "444444444444", "5555"];
 
 function App() {
-  
   console.log(window.Telegram.WebApp);
 
   const [isCart, setIsCart] = useState(true);
-  const [cartItems, setCartItems] = useState([]);
-  const [categories, setCategories] = useState([
-    "hello",
-    "holo hola hola",
-    "bonkerrs",
-    "cha cha cha, cha cha",
-  ]);
-  const [catIndex, setCatIndex] = useState(1);
+  const [cartItems, setCartItems] = useState([1]);
+  const [items, seItems] = useState(itemData);
+  const [catIndex, setCatIndex] = useState(0);
 
-  const handleCatgory = (index) => {
-    if (index > 0 && index < categories.length) {
+  const handleCategory = (index) => {
+    if (index >= 0 && index < items.length) {
       setCatIndex(index);
     }
-    setIsCart(true)
+    console.group(index)
+    // setIsCart(true)
   };
   useEffect(()=>{
+
     window.Telegram.WebApp.MainButton.hide()
     if(cartItems.length > 0){
       window.Telegram.WebApp.MainButton.show()
@@ -45,21 +43,21 @@ function App() {
             <div className="category-container">
               <button
                 className="prev-category category-item"
-                onClick={() => handleCatgory(catIndex - 1)}
+                onClick={(e) => handleCategory(catIndex - 1)}
               >
-                {categories[catIndex - 1]}
+                {items ? items[catIndex - 1]?.category_name : ""}
               </button>
               <button className="curr-category category-item">
-                {categories[catIndex]}
+                {items ? items[catIndex]?.category_name : ""}
               </button>
               <button
                 className="next-category category-item"
-                onClick={() => handleCatgory(catIndex + 1)}
+                onClick={(e) => handleCategory(catIndex + 1)}
               >
-                {categories[catIndex + 1]}
+                {items ? items[catIndex + 1]?.category_name : ""}
               </button>
             </div>
-            <Items />
+            <Category />
           </div>
         ) : (
           <Cart cartItems={cartItems} setIsCart={setIsCart} />

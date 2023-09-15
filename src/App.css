@@ -39,7 +39,7 @@
 }
 .category-item {
   scroll-snap-align: center;
-  color: #000;
+  color: #FFf;
   /* background-color: #fff; */
   border: none;
   min-width: 50%;
@@ -49,6 +49,7 @@
   text-overflow: ellipsis;
   overflow: hidden; 
   white-space: nowrap;
+  opacity: 0.8;
 }
 .prev-category {
   text-align: end;
