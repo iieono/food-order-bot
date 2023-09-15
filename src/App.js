@@ -58,7 +58,14 @@ function App() {
                 {items ? items[catIndex + 1]?.category_name : ""}
               </button>
             </div>
-            <Category />
+            {
+              items && items.map((cat)=>{
+                return(
+                  <Category id={`${cat.id}-category`} category={cat}/>
+                )
+              })
+
+            }
           </div>
         ) : (
           <Cart cartItems={cartItems} setIsCart={setIsCart} setViewOrder={setViewOrder} />
