@@ -18,8 +18,8 @@ export const Cart = ({cartItems, setIsCart}) => {
   ]
   useEffect(()=>{
     let total_price = 0
-    for(order of orderList){
-      full_price += (order.price * order.count)
+    for(const order of orderList){
+      total_price += (order.price * order.count)
     }
 
     window.Telegram.WebApp.MainButton.show()
