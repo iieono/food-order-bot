@@ -70,7 +70,7 @@ function App() {
                 {items ? items[catIndex - 1]?.category_name : ""}
               </button>
               <button className="curr-category category-item"
-              // onClick={()=>setIsCart(true)}
+              onClick={()=>setIsCart(true)}
               >
                 {items ? items[catIndex]?.category_name : ""}
               </button>

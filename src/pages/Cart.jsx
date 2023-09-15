@@ -1,51 +1,18 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export const Cart = ({cartItems, setIsCart, setViewOrder}) => {
-  
-  const orderList = [
-    {
-      item_name : 'Pizza',
-      price : 65000,
-      count : 3,
-      description: 'Pizza peperonni spicy one' 
-    },
-    {
-      item_name : 'Pizza',
-      price : 65000,
-      count : 3,
-      description: 'Pizza peperonni spicy one' 
-    },
-    {
-      item_name : 'Pizza',
-      price : 65000,
-      count : 3,
-      description: 'Pizza peperonni spicy one' 
-    },
-    {
-      item_name : 'Cola',
-      price : 10000,
-      count : 1, 
-      description: 'Cola cola cola cola cola cola cola caol cola' 
-    },
-    {
-      item_name : 'Cola',
-      price : 10000,
-      count : 1, 
-      description: 'Cola cola cola cola cola cola cola caol cola' 
-    },
-    {
-      item_name : 'Cola',
-      price : 10000,
-      count : 1, 
-      description: 'Cola cola cola cola cola cola cola caol cola' 
-    },
-    {
-      item_name : 'Cola',
-      price : 10000,
-      count : 1, 
-      description: 'Cola cola cola cola cola cola cola caol cola' 
-    },
-  ]
+  const [comment, setComment] = useState('')
+  const sendCartItems = ()=>{
+    let total_price = 0
+    for(const order of cartItems){
+      total_price += (order.price * order.count)
+    }
+    window.Telegram.WebApp.sendData({
+      cart : cartItems,
+      comment : comment,
+      total_price : total_price,
+    })
+  }
   useEffect(()=>{
     let total_price = 0
     for(const order of cartItems){
@@ -58,7 +25,7 @@ export const Cart = ({cartItems, setIsCart, setViewOrder}) => {
       text_color : '#FFF'
     })
     window.Telegram.WebApp.MainButton.setText(`Pay ${total_price.toLocaleString('fr')} so'm`)
-    // window.Telegram.WebApp.MainButton.onClick(()=>setIsCart(false))
+    window.Telegram.WebApp.MainButton.onClick(sendCartItems)
   },[])
   return (
       <div className='cart-orders'>
@@ -90,7 +57,7 @@ export const Cart = ({cartItems, setIsCart, setViewOrder}) => {
             }) }
         </div>
         <div className='extra-details'>
-          <input type='text' placeholder='Add comment...' className='comment-input'/>
+          <input type='text' placeholder='Add comment...' className='comment-input' value={comment} onChange={(e)=>setComment(e.target.value)}/>
           <p className='info-comment'>Any special requests, details, final wishes etc.</p>
         </div>
       </div>
