@@ -41,6 +41,12 @@ const addScrollListener = ()=>{
             handleCategory(indexx)
           }
       }, false);
+        window.addEventListener('touchmove', function (event) {
+          if (isInViewport(element)) {
+            const indexx = isInViewport(element)
+            handleCategory(indexx)
+          }
+      }, false);
       }
     }
 }
