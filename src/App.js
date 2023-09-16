@@ -41,7 +41,7 @@ const addScrollListener = ()=>{
             handleCategory(indexx)
           }
       }, false);
-        window.addEventListener('touchend', function (event) {
+        document.body.addEventListener('touchmove', function (event) {
           if (isInViewport(element)) {
             const indexx = isInViewport(element)
             handleCategory(indexx)
