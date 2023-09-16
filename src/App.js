@@ -46,7 +46,7 @@ const addScrollListener = ()=>{
             const indexx = isInViewport(element)
             handleCategory(indexx)
           }
-      }, false);
+      });
       }
     }
 }
