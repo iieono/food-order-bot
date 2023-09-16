@@ -3,7 +3,7 @@ import { Item } from './Item'
 
 export const Category = ({category, handleCart, cartItems}) => {
   return (
-    <div className='item-cat-container' id={`${category.cat_id}-category`}>
+    <div className='item-cat-container' id={`${category.cat_id}-category`} data-item={category}>
       <div className='category-name'>
         <p>{category.category_name}</p>
       </div>

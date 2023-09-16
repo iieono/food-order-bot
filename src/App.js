@@ -25,23 +25,32 @@ function App() {
         bounding.right <= (window.innerWidth || document.documentElement.clientWidth) &&
         bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
     ) {
-        console.log(element.getAttribute('id'));
-        return true;
+        const indexx = element.getAttribute('id').split('-')[0] 
+        console.log(indexx);
+        return indexx;
     }
 }
-  useEffect(()=>{
-    const categories = document.getElementsByClassName('item-cat-container')
+const addScrollListener = ()=>{
+  const categories = document.getElementsByClassName('item-cat-container')
     if(categories){
       console.log(categories)
       for(let element of categories){
         window.addEventListener('scroll', function (event) {
           if (isInViewport(element)) {
-            // update the element display
+            const indexx = isInViewport(element)
+            handleCategory(indexx)
           }
       }, false);
       }
     }
+}
+  useEffect(()=>{
+    addScrollListener()
   },[])
+
+  const handleScrollListener = ()=>{
+    // window.removeEventListener('scroll', any)
+  }
 
   const handleCart = (item, value)=>{
     if(!window.Telegram.WebApp.MainButton.isVisible){
@@ -64,11 +73,11 @@ function App() {
     console.log(cartItems)
   }
 
-  const handleCategory = (item) => {
-    // if (index >= 0 && index < items.length) {
-    //   setCatIndex(index);
-    // }
-    // document.getElementById(`${item.cat_id}-categrory`).scrollToView()
+  const handleCategory = (indexx) => {
+    const index = items.findIndex((cat)=>Number(indexx) === cat.cat_id)
+    const scrollContainer = document.querySelector('.category-container')
+    console.log('hello',index, scrollContainer.scrollLeft)
+    scrollContainer.scrollLeft = 100 * index + 1
   };
   const setViewOrder = ()=> {
     if(cartItems.length > 0){
@@ -92,23 +101,6 @@ function App() {
         {!isCart ? (
           <div className="container-main">
             <div className="category-container">
-              {/* <button
-                className="prev-category category-item"
-                onClick={(e) => handleCategory(catIndex - 1)}
-              >
-                {items ? items[catIndex - 1]?.category_name : ""}
-              </button>
-              <button className="curr-category category-item"
-              onClick={()=>setIsCart(true)}
-              >
-                {items ? items[catIndex]?.category_name : ""}
-              </button>
-              <button
-                className="next-category category-item"
-                onClick={(e) => handleCategory(catIndex + 1)}
-              >
-                {items ? items[catIndex + 1]?.category_name : ""}
-              </button> */}
               <button
                       className="category-item"
                       onClick={(e) => {}}
@@ -118,10 +110,11 @@ function App() {
                 items.map((item) => {
                   return (
                     <NavHashLink
-                      smooth to={`#${item.cat_id}-category`}
+                      data-item={item}
+                      // smooth to={`#${item.cat_id}-category`}
                       id={`${item.cat_id}-category-id`}
                       className=" category-item"
-                      onClick={(e) => {handleCategory(item)}}
+                      // onClick={(e) => {handleCategory(item)}}
                     >
                       {items ? item.category_name : ""}
                     </NavHashLink>

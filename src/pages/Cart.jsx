@@ -7,7 +7,7 @@ export const Cart = ({cartItems, setIsCart, setViewOrder}) => {
     for(const order of cartItems){
       total_price += (order.price * order.count)
     }
-    window.Telegram.WebApp.showConfirm(`Are you sure? \nTotal price: ${total_price.toLocaleString('fr')} so'm`, ()=>{
+    window.Telegram.WebApp.showConfirm(`Are you sure? \n\nTotal price: ${total_price.toLocaleString('fr')} so'm`, ()=>{
       window.Telegram.WebApp.sendData({
         cart : cartItems,
         comment : comment,
